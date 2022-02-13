@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Javascript Drum Kit</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="container">
+        <div class="number">
+            <div data-key="49" class="num">
+                <kbd>1</kbd><br>
+                <span class="sound">CLAP</span>
+            </div>
+            <div data-key="50" class="num">
+                <kbd>2</kbd><br>
+                <span class="sound">HIHAT</span>
+            </div>
+            <div data-key="51" class="num">
+                <kbd>3</kbd><br>
+                <span class="sound">KICK</span>
+            </div>
+            <div data-key="52" class="num">
+                <kbd>4</kbd><br>
+                <span class="sound">OPENHAT</span>
+            </div>
+            <div data-key="53" class="num">
+                <kbd>5</kbd><br>
+                <span class="sound">BOOM</span>
+            </div>
+            <div data-key="54" class="num">
+                <kbd>6</kbd><br>
+                <span class="sound">RIDE</span>
+            </div>
+            <div data-key="55" class="num">
+                <kbd>7</kbd><br>
+                <span class="sound">SNARE</span>
+            </div>
+            <div data-key="56" class="num">
+                <kbd>8</kbd><br>
+                <span class="sound">TOM</span>
+            </div>
+            <div data-key="57" class="num">
+                <kbd>9</kbd><br>
+                <span class="sound">TICK</span>
+            </div>
+        </div>
+
+        <audio data-key="49" src="/clap.wav"></audio>
+        <audio data-key="50" src="/hihat.mp3"></audio>
+        <audio data-key="51" src="/kick.mp3"></audio>
+        <audio data-key="52" src="/openhat.wav"></audio>
+        <audio data-key="53" src="/boom.mp3"></audio>
+        <audio data-key="54" src="/ride.mp3"></audio>
+        <audio data-key="55" src="/snare.mp3"></audio>
+        <audio data-key="56" src="/tom.mp3"></audio>
+        <audio data-key="57" src="/tick.mp3"></audio>
+    </div>
+    <script src="1.js"></script>
+</body>
+
+</html>
