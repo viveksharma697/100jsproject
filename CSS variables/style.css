@@ -1,0 +1,30 @@
+:root {
+    --base: #52FF33;
+    --spacing: 10px;
+    --blur: 0px;
+}
+
+body {
+    text-align: center;
+    background: blueviolet;
+    color: white;
+    text-shadow: 0 0 4px yellow;
+    font-weight: 400;
+    background-size: cover;
+    background-position: center;
+}   
+
+
+img {
+    padding: var(--spacing);
+    background: var(--base);
+    filter: blur(var(--blur));
+}
+
+.h1 {
+    color: var(--base);
+}
+
+.controls { 
+    margin-bottom: 100px;
+}
