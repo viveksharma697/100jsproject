@@ -7,9 +7,105 @@
     <title>Ajax Type Ahead</title>
 </head>
 <body>
+    <form class="search-form">
+        <input type="text" class="search" placeholder="City or State">
+        <ul class="suggestions">
+            <li>Filter for a City</li>
+            <li>or a State</li>
+        </ul>
+    </form>
+
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+        body {
+            background-color: chartreuse;
+            text-align: center;
+            align-items: center;
+            align-content: center;
+        }
+        ul {
+            list-style-type: none;
+        }
+        .suggestions {
+            
+            width: 50vw;
+            text-align: center;
+            align-items: center;
+            align-content: center;
+        }
+        .search-form {
+            display: flex;
+            flex-direction: column;
+            text-align: center;
+            align-items: center;
+            align-content: center; 
+            font-size: 10px;
+        }
+        .search {
+            margin: 15px;
+            padding: 10px;
+            font-size: 30px;
+            text-align: center;
+            width: 50vw;
+            border: 1px solid blue;
+            border-radius: 15px;
+        }
+        .h1 {
+            background-color: darkgoldenrod;
+        }
+        
+        ul li {
+            border: 1px solid blue;
+            margin: 0;
+            background-color: cornsilk;
+            border-radius: 15px;
+        }
+
+    </style>
     <script>
         const endpoint = 'https://gist.githubusercontent.com/Miserlou/c5cd8364bf9b2420bb29/raw/2bf258763cdddd704f8ffd3ea9a3e81d25e2c6f6/cities.json';
         
+
+        const cities = [];
+
+        fetch(endpoint)
+        .then(blob => blob.json())   
+        .then(data => cities.push(...data))
+        
+        function findMatches(wordToMatch, cities) {
+            return cities.filter(place => {
+                const regex = new RegExp(wordToMatch, 'gi');
+                return place.city.match(regex) || place.state.match(regex)
+            });
+        }
+
+        function displayMatches() {
+           const matchArray = findMatches(this.value, cities);
+           const html = matchArray.map(place => {
+               const regex = new RegExp(this.value, 'gi');
+               const cityName = place.city.replace(regex, `<span class="h1">${this.value}</span>`);
+               const stateName = place.state.replace(regex, `<span class="h1">${this.value}</span>`);
+               return `
+               <li>
+                <span class="name">${cityName}, ${stateName}</span>
+                <span class="population">${place.population}</span>
+                </li>`;
+               
+           }).join('');
+           suggestions.innerHTML = html;
+        }
+
+        const searchInput = document.querySelector('.search');
+        const suggestions = document.querySelector('.suggestions')
+
+        searchInput.addEventListener('change', displayMatches);
+        searchInput.addEventListener('keyup', displayMatches);
+
+
+
     </script>
 </body>
 </html>
