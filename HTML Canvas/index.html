@@ -1,19 +1,42 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>HTML5 Canvas</title>
 </head>
+
 <body>
-    <canvas class="draw" width="1000" height="1000"></canvas>
+    <canvas id="draw" width="1000" height="1000"></canvas>
     <script>
+const canvas = document.querySelector('#draw');
+const ctx = canvas.getContext('2d');
+canvas.width = window.innerWidth;
+canvas.heighy = window.innerHeight;
+ctx.strokeStyle = '#BADA55';
+ctx.lineJoin = 'round';
+ctx.lineCap = 'round';
+
+let isdrawing = false;
+let lastX = 0;
+let lastY = 0;
+
+function draw(e) {
+    console.log(e);
+}
+
+canvas.addEventListener('mousemove', draw);
+
 
     </script>
 
     <style>
-        
+        * {
+            margin: 0;
+            padding: 0;
+        }
     </style>
 </body>
 </html>
