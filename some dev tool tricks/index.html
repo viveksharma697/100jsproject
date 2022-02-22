@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dev Tricks</title>
+</head>
+<body>
+    <p onclick="makeRed()">I love you..!!</p>
+
+    <script>
+        const pets = [{ name: 'Dipsy', age: 21 }, {name: 'Caety', age: 22 }];
+
+        function makeRed() {
+            const p = document.querySelector('p');
+            p.style.color = 'red';
+            p.style.fontSize = '40px';
+      
+        }
+
+        // Interpolated
+        // console.log('Hellow I love a %s', '🐕');
+        // OR
+        console.log(`Hellow I love a ${'🐕'}`);
+
+        // Styled
+        console.log('%c Need some power', 'font-size:45px; background:yellow;'); //css styling can be added to the console with the help of the %c
+
+        // warning
+        console.warn('be careful');
+
+        // error
+        console.error('wrong methods')
+
+        // info
+        console.info('description is written below')
+
+        // testing
+        // console.assert(1 === 2, 'This is wrong!');
+        const p = document.querySelector('p');
+        console.assert(p.classList.contains('baby'), 'you are wrong');
+
+        // clearing
+        console.clear();
+
+        // viewing DOM elements
+        console.log(p);
+        console.dir(p);
+
+        console.clear()
+
+        // grouping together 
+        pets.forEach(pet => {
+            console.group(`${pet.name}`);
+            // here console.groupCollapsed(`${pet.name}` will only show the names of the pets and other information of the group will be hidden)
+            console.log(`This is ${pet.name}`);
+            console.log(`${pet.name} is ${pet.age} years old`);
+            console.log(`${pet.name} is ${pet.age} dog years old`);
+            console.groupEnd(`${pet.name}`);
+        })
+
+        // counting = it will count the no. of times the word or the string is used
+        console.count('dada')
+        console.count('dada')
+        console.count('dadi')
+        console.count('dada')
+        console.count('dada')
+        console.count('dadi')
+        console.count('dada')
+        console.count('dada')
+        console.count('dadu')
+        console.count('dada')
+
+        // timing
+
+        // table
+        console.table(pets);
+        
+
+
+    </script>
+</body>
+</html>
