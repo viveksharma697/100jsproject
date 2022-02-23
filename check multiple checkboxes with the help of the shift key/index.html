@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tick multiple checkboxes</title>
+</head>
+
+<body>
+    <div class="inbox">
+        <div class="item">
+            <input type="checkbox">
+            <p>This is the first checkbox</p>
+        </div>
+        <div class="item">
+            <input type="checkbox">
+            <p>This is the second checkbox
+            </p>
+        </div>
+        <div class="item">
+            <input type="checkbox">
+            <p>This is the third checkbox</p>
+        </div>
+        <div class="item">
+            <input type="checkbox">
+            <p>This is the 4th checkbox</p>
+        </div>
+        <div class="item">
+            <input type="checkbox">
+            <p>This is the 5th checkbox</p>
+        </div>
+        <div class="item">
+            <input type="checkbox">
+            <p>This is the 6th checkbox</p>
+        </div>
+        <div class="item">
+            <input type="checkbox">
+            <p>This is the 7th checkbox</p>
+        </div>
+        <div class="item">
+            <input type="checkbox">
+            <p>This is the 8th checkbox</p>
+        </div>
+        <div class="item">
+            <input type="checkbox">
+            <p>This is the 9th checkbox</p>
+        </div>
+    </div>
+
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+
+        body {
+            background-color: aquamarine;
+            text-align: center;
+            align-items: center;
+            align-content: center;
+            padding-top: 100px;
+            
+        }
+
+        .inbox {
+            margin: auto;
+            
+            border: 2px solid blueviolet;
+            padding: 15px;
+            
+            text-align: center;
+            width: 500px;
+            background-color: rgb(148, 112, 68);
+        }
+
+        .item {
+            display: flex;
+            margin: 10px;
+            font-size: 30px;
+            border: 1px solid blue;
+            background-color: rgb(221, 213, 202);
+        }
+
+        input {
+            margin: 5px;
+            width: 25px;
+            height: 25px;
+        }
+
+       
+    </style>
+
+    <script>
+        const checkboxes = document.querySelectorAll('.inbox input[type="checkbox"]');
+        // console.log(checkboxes);
+
+        let lastChecked;
+
+        function handleCheck(e) {
+            // console.log(e);
+
+            // check if there is shift key down
+            // and check that they are checking it
+            let inBetween = false;
+            if (e.shiftKey && this.checked) {
+                // loop over every single checkbox
+                checkboxes.forEach(checkbox => {
+                    console.log(checkbox);
+                    if (checkbox === this || checkbox === lastChecked) {
+                        inBetween = !inBetween
+                        console.log('checking the starting and the ending of the loop');
+                    }
+
+                    if (inBetween) {
+                        checkbox.checked = true;
+                    }
+                });
+            }
+
+
+            lastChecked = this;
+        }
+
+        checkboxes.forEach(checkbox => checkbox.addEventListener('click', handleCheck));
+    </script>
+</body>
+
+</html>
