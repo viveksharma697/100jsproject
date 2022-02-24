@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reference Vs Copy</title>
+</head>
+<body>
+    
+    <script>
+        // start with strings, numbers and booleans
+
+        let a = 100;
+        let b = a;
+        console.log(a, b);
+        a = 200;
+        console.log(a, b);
+
+        // Let's say we have an array
+        const babies = ['Ssdd', 'Kjfhe', 'Hesgj', 'Bdhesa'];
+
+        // and we want to make a copy of it
+        const play = babies;
+
+        console.log(babies, play);
+
+        // you might think we can just do something like this
+        play[3] = 'Bis';
+
+        // however what happens when we update that array?
+
+        // now here is the problem!
+
+        // we have edited the original array too!
+
+        // why? It's because that is an array reference, not an array copy. They both point to the same array!
+
+        // So, how do we fix this? We take a copy instead!
+        const play2 = babies.slice();
+
+        // one day
+
+        // or create a new array and concat the old one in
+        const play3 = [].concat(babies);
+
+        // or use the new ES6 spread
+        const play4 = [...babies]
+
+        // now when we update it, the original one isn't changed
+
+        // the same thing goes for objects, let's say we have a person object
+
+        // with objects
+        const person = {
+            name: 'Ssdd Vor',
+            age: 12
+        };
+
+        // and think we make a copy;
+        // const captain = person;
+        // captain.number = 30;
+
+        // how do we take a copy instead?
+        const captain2 = object.assign({}, person, {number: 30});
+        console.log(captain2);
+
+        // we will hopefully soon see the object ...spread
+        // const captain3 = {...person};
+
+       
+    </script>
+</body>
+</html>
