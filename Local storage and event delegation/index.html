@@ -18,7 +18,7 @@
         <h1>LOCAL STORAGE</h1>
         <p></p>
         <ul class="plates">
-            <li>Loading Tapas...</li>
+            <li>Loading Storage...</li>
         </ul>
         <form class="add-items">
             <input type="text" name="item" placeholder="Item Name" required>
@@ -52,7 +52,7 @@
 
         function addItem(e) {
             e.preventDefault();
-            const text = this.querySelector('[name=item]')
+            const text = (this.querySelector('[name=item]')).value;
             const item = {
                 text,
                 done: false
@@ -67,7 +67,8 @@
             platesList.innerHTML = plates.map((plate, i) => {
                 return `
                 <li>
-                <label for=''>${plate.text}</label>
+                <input type="checkbox" data-index=${i} id="item${i}" ${plate.done ? 'checked' : ''} />
+                <label for="">${plate.text}</label>
                 </li>
                 `;
             }).join('');
