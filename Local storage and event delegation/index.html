@@ -17,20 +17,28 @@
     <div class="wrapper">
         <h1>LOCAL STORAGE</h1>
         <p></p>
+        <div class="box">
         <ul class="plates">
             <li>Loading Storage...</li>
         </ul>
         <form class="add-items">
             <input type="text" name="item" placeholder="Item Name" required>
             <input type="submit" value="+ Add Item">
-        </form>
+        </form></div>
     </div>
 
     <style>
+        body {
+            background-color: aqua;
+            text-align: center;
+            align-items: center;
+            align-content: center;
+        }
         .add-items input {
             padding: 10px;
             outline: 0;
             border: 1px solid rgba(0,0,0,0.1);
+            margin-left: 0;
         }
 
         *, *:before, *:after {
@@ -42,6 +50,34 @@
             -webkit-rtl-ordering: logical;
             user-select: text;
             cursor: auto;
+            margin-bottom: 15px;
+        }
+        .plates {
+            text-align: left;
+        }
+
+        .wrapper {
+            background-color: yellowgreen;
+            text-align: center;
+            align-items: center;
+            align-content: center;
+            
+        }
+        .box {
+            width: 33vh;
+            margin: auto;
+        }
+        ul {
+            list-style-type: none;
+            background-color: whitesmoke;
+            margin-bottom: 0;
+            width: 35vh;
+            padding-left: 0%;
+        }
+        ul li {
+            border: 1px solid rgb(212, 195, 195);
+            padding: 5px;
+        
         }
     </style>
 
