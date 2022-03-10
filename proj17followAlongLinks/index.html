@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Follow Along the Navbar</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <nav>
+        <ul class="menu">
+            <li><a href="">Home</a></li>
+            <li><a href="">Status</a></li>
+            <li><a href="">Read</a></li>
+            <li><a href="">History</a></li>
+            <li><a href="">Contact Us</a></li>
+        </ul>
+    </nav>
+
+    <div class="wrapper">
+        <p>Lorem ipsum, dolor sit amet <a href="">skhfkkws</a> consectetur adipisicing elit. Sit iste error suscipit quas iure perspiciatis officia amet quod culpa cupiditate itaque consequatur necessitatibus saepe repellat voluptas, sunt, molestiae minima <a href="">jkshgfh</a> exercitationem ad. Dicta minima eveniet doloremque saepe sequi, explicabo voluptatum, ad consequatur, totam ratione quas? Eveniet enim hic quaerat sapiente nihil. Vitae facilis voluptates eaque quae, dolorum in placeat esse laboriosam, veniam iusto tenetur quibusdam at similique ut minus ipsum autem? Fugit repellendus quaerat totam facilis eos provident iure quis tenetur modi ullam, vero <a href="">ojgshsdlshj</a> pariatur illum debitis officia harum obcaecati, minus sit! Eveniet voluptatem, quod nemo alias blanditiis ipsum ut eum. Nihil quaerat at error natus numquam architecto quisquam ad? Minus ab nam vero. Amet asperiores vel porro sapiente inventore hic, dicta repudiandae expedita voluptas repellat! Quam odit repellendus, architecto officia porro impedit qui rerum consequuntur possimus maxime pariatur itaque necessitatibus? Dicta quibusdam eligendi <a href="">ahjfgie</a> sint enim repudiandae debitis aperiam tempore odio pariatur, assumenda saepe iusto culpa, iure a eos. Corporis magni ipsam omnis. Recusandae, corrupti nisi! Error aperiam numquam possimus voluptatum voluptate mollitia repellat doloribus ullam quasi ducimus nisi eius expedita accusamus <a href="">ighuwsgfig</a> odit enim, ipsum suscipit corrupti perferendis distinctio illo facilis quos incidunt ad. Neque consectetur quae deserunt quaerat mollitia voluptatum <a href="">jgbusgfu</a> ullam maiores molestias necessitatibus corrupti earum in non hic, dicta voluptate. Sapiente, praesentium. Iste libero at, quae quam <a href="">jggsgf</a> earum aliquam praesentium provident deserunt sequi quasi cumque facere similique exercitationem quas tempore laborum et nemo ipsum pariatur <a href="">ikwhif</a> omnis. Temporibus, soluta officiis sunt nobis hic, necessitatibus adipisci magni, repellendus consequuntur ducimus aspernatur?</p>
+    </div>
+
+    <script>
+        const triggers = document.querySelectorAll('a');
+        const highlight = document.createElement('span');
+        highlight.classList.add('highlight');
+        document.body.append(highlight);
+
+        function highlightLink() {
+            const linkCoords = this.getBoundingClientRect();
+            console.log(linkCoords);
+            const coords = {
+                width: linkCoords.width,
+                height: linkCoords.height,
+                top: linkCoords.top + window.scrollY,
+                left: linkCoords.left + window.scrollX
+            };
+            highlight.style.width = `${coords.width}px`;
+            highlight.style.height = `${coords.height}px`;
+            highlight.style.transform = `translate(${coords.left}px, ${coords.top}px)`;
+        }
+
+        triggers.forEach(a => a.addEventListener('mouseenter', highlightLink));
+    </script>
+</body>
+</html>
