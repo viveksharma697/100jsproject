@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Strip follow along Dropdown</title>
+</head>
+
+<body>
+    <nav class="top">
+        <div class="dropdownBackground">
+            <span class="arrow"></span>
+            <div>
+                <ul class="cool">
+                    <li>
+                        <a href="#">About</a>
+                        <div class="dropdown dropdown1">
+                            <div class="bio">
+                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi praesentium
+                                    necessitatibus deserunt eum earum optio ut, ducimus ipsum harum quis perferendis
+                                    natus, voluptate ex ratione libero, voluptatem porro dicta fugiat quas nulla
+                                    reprehenderit. Nisi ipsum, quae aliquid saepe dolor, quaerat distinctio eveniet
+                                    molestias accusantium blanditiis ex illum, dicta numquam voluptates!</p>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <a href="#">Courses</a>
+                        <ul class="dropdown courses">
+                            <li>
+                                <span class="code">rdf</span>
+                            </li>
+                            <li>
+                                <span class="code">es6</span>
+                            </li>
+                        </ul>
+
+                    </li>
+                    <li>
+                        <a href="#">other links</a>
+                        <ul class="dropdown dropdown3">
+                            <li><a class="button" href="http://twitter.com">Twitter</a></li>
+                            <li><a class="button" href="http://google.com">Google</a></li>
+                        </ul>
+                    </li>
+            </div>
+        </div>
+    </nav>
+
+    <style>
+        html {
+            box-sizing: border-box;
+
+        }
+
+        *,
+        *::before,
+        *::after {
+            box-sizing: inherit;
+        }
+
+        body {
+            min-height: 100vh;
+            background:
+                linear-gradient(45deg, red, yellowgreen);
+            ;
+        }
+
+        nav {
+            position: relative;
+            perspective: 600px;
+        }
+
+        .cool>li>a {
+            color: yellow;
+            text-decoration: none;
+            font-size: 20px;
+            background: rgba(0, 0, 0, 0.2);
+            display: inline-block;
+            margin: 20px;
+            border-radius: 5px;
+        }
+
+        nav ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+        }
+
+        .dropdown {
+            opacity: 0;
+            position: absolute;
+            overflow: hidden;
+            padding: 20px;
+            top: -20px;
+            border-radius: 2px;
+            transition: all 0.5s;
+            transform: translateY(100px);
+            will-change: transform;
+            display: none;
+        }
+
+        .trigger-enter .dropdown {
+            display: block;
+            opacity: 1;
+        }
+
+        .trigger-enter-active .dropdown {
+            opacity: 1;
+        }
+
+        .dropdownBackground {
+            width: 100px;
+            height: 100px;
+            position: absolute;
+            background: #fff;
+            border-radius: 4px;
+            box-shadow: 0 50px 100px rgba(50,50,93,.1), 0 15px 35px rgba(50,50,93,.15), 0 5px 15px rgba(0,0,0,.1);
+            transition: all 0.3s, opacity 0.1s, translate 0.2s;
+            transform-origin: 50% 0%;
+            display: flex;
+            justify-content: center;
+            opacity: 0.7;
+        }
+
+        .dropdownBackground.open {
+            opacity: 1;
+        }
+
+        .arrow {
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            display: block;
+            background: white;
+            transform: translate(-50%) rotate(45deg);
+        }
+
+        .bio {
+            min-width: 500px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            line-height: 1.7;
+            color: aliceblue;
+        }
+
+        .courses {
+            min-width: 300px;
+        }
+
+        .courses li {
+            padding: 10px 0;
+            display: block;
+            color: aliceblue;
+        }
+
+        .dropdown {
+            color: antiquewhite;
+        }
+    </style>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
