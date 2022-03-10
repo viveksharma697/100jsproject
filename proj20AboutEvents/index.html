@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event Capture, Propagation, Bubbling and Once</title>
+</head>
+
+<body class="bod">
+
+    <div class="one">
+        <div class="two">
+            <div class="three">
+
+            </div>
+        </div>
+    </div>
+<div>
+    <button>ok</button>
+</div>
+    <style>
+      
+        
+        html {
+            box-sizing: border-box;
+        }
+
+        *,
+        *:before,
+        *:after {
+            box-sizing: inherit;
+        }
+
+        div {
+           
+          
+            position: absolute;
+        }
+
+        .one {
+            width: 90%;
+            height: 90%;
+            background: thistle;
+        }
+        .two {
+            width: 70%;
+            height: 70%;
+            background: mistyrose;
+            
+        }
+        .three {
+            width: 60%;
+            height: 60%;
+            background: coral;
+        }
+
+
+    </style>
+
+    <script>
+
+        const divs = document.querySelectorAll('div');
+
+        function logText(e) {
+            console.log(this.classList.value);
+            // e.stopPropagation(); //stops bubbling
+        }
+
+        // document.body.addEventListener('click', logText);
+
+        divs.forEach(div => div.addEventListener('click', logText, {
+            capture: false, //'true' makes the direction to be selected opposite, means bottommost will be selected first (by default it is false means the item you click will be selected)
+            once: true // bubble will run only once
+        }));
+    </script>
+</body>
+
+</html>
